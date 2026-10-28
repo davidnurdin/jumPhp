@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+	<!-- real size of php-web.wasm (progress bar: Content-Length is wrong when the server compresses) -->
+	<meta name="php-wasm-size" content="7611838" />
+	<title>BREAKOUT</title>
+	<meta name="description" content="Break the wall of bricks with a bouncing ball: 3 lives, a new wall every level." />
+	<meta name="generator" content="JumPHP 8.3" />
+	<meta name="theme-color" content="#000000" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta property="og:title" content="BREAKOUT" />
+	<meta property="og:description" content="Break the wall of bricks with a bouncing ball: 3 lives, a new wall every level." />
+	<link rel="icon" href="data:," />
+	
+	<style>
+		:root { --ratio: 320 / 240; --accent: #ffd23f; }
+		html, body { margin: 0; height: 100%; background: #000; color: #ddd; font: 14px/1.4 system-ui, sans-serif; overflow: hidden; }
+		#stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+		/* SDL (emscripten) takes the CSS size of the canvas as the window size: an explicit size, never CSS zoom */
+		#canvas { display: block; width: min(100vw, calc(100vh * var(--ratio))); aspect-ratio: var(--ratio); background: #000; outline: none; }
+		#canvas:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; }
+		#loader, #overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+			gap: 14px; background: #0b0b18; z-index: 10; text-align: center; padding: 16px; box-sizing: border-box; }
+		#loader h1, #overlay h1 { margin: 0; font: bold 28px monospace; letter-spacing: 2px; color: #fff; }
+		#bar { width: min(320px, 80vw); height: 10px; border: 2px solid #fff; }
+		#bar > div { height: 100%; width: 0; background: var(--accent); transition: width .15s; }
+		#status { font-family: monospace; min-height: 1.4em; }
+		#loader.error #status { color: #ff6b6b; white-space: pre-wrap; max-width: 90vw; }
+		#overlay { display: none; cursor: pointer; background: rgba(0, 0, 0, .75); }
+		#overlay p { font: bold 18px monospace; color: var(--accent); animation: blink 1s steps(2) infinite; }
+		@keyframes blink { 50% { opacity: 0; } }
+		#toolbar { position: fixed; right: 8px; bottom: 8px; z-index: 5; display: flex; gap: 6px; opacity: .35; transition: opacity .2s; }
+		#toolbar:hover { opacity: 1; }
+		#toolbar button { background: #222; color: #fff; border: 1px solid #555; border-radius: 4px; font: 12px monospace; padding: 4px 8px; cursor: pointer; }
+	</style>
+	<script>window.JUMPHP_GAME = {"id":"breakout","title":"BREAKOUT","version":"1.0.0","description":"Break the wall of bricks with a bouncing ball: 3 lives, a new wall every level.","width":320,"height":240,"online":false,"lang":"en","net_url":"ws://localhost:8090/ws","touch":{"a":"Space","b":"Escape","start":"Escape"},"thumbnail":null,"controls":"Left / Right (or A / D): move the paddle. Space: launch the ball. Escape / P: pause.","engine":{"name":"JumPHP","php":"8.3","network":"a898904e58d445501dc98e5d2cf029632c449618"},"built":"2026-10-28T18:10:38+00:00"};</script>
+</head>
+<body>
+<div id="stage"><canvas id="canvas" width="320" height="240" tabindex="-1" oncontextmenu="event.preventDefault()"></canvas></div>
+<div id="toolbar"><button id="btn-sound" title="Sound">SOUND</button><button id="btn-full" title="Fullscreen">FULLSCREEN</button></div>
+<div id="loader"><h1>BREAKOUT</h1><div id="bar"><div></div></div><div id="status">Loading...</div></div>
+<div id="overlay"><h1>BREAKOUT</h1><p>CLICK / TAP TO PLAY</p></div>
+
+<!-- networking for PHP (php-wasm-network): loaded before the engine, its wasmnet extension calls it -->
+<script src="php-wasm-network.js?v=c0b61341e0cf"></script>
+<script src="touch.js?v=2380d5167e45"></script>
+<script type="module" src="jumphp.js?v=995b342a2905"></script>
+</body>
+</html>

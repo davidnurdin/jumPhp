@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JumPHP games</title>
+<style>
+	:root { --bg: #0b0b18; --fg: #e6e6f0; --muted: #9a9ab4; --accent: #ffd23f; --card: #15152a; --border: #2a2a48; }
+	html, body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+	main { max-width: 760px; margin: 0 auto; padding: 32px 16px; }
+	h1 { font: bold 32px monospace; letter-spacing: 2px; color: var(--accent); margin: 0 0 4px; }
+	p { color: var(--muted); }
+	p a { color: var(--accent); }
+	.card { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--border);
+		border-radius: 8px; padding: 16px 20px; margin: 14px 0; color: var(--fg); text-decoration: none; }
+	.card:hover { border-color: var(--accent); }
+	.card img { width: 128px; flex: none; image-rendering: pixelated; border-radius: 4px; }
+	.card strong { display: block; font: bold 18px monospace; color: var(--accent); }
+	.card small { display: block; margin-top: 6px; color: var(--muted); }
+	@media (max-width: 480px) { .card { flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+<main>
+	<h1>JumPHP</h1>
+	<p>Retro 2D games written in PHP, running in your browser (PHP compiled to WebAssembly).</p>
+	<p>Source: <a href="https://github.com/davidnurdin/jumPhp">github.com/davidnurdin/jumPhp</a> · Make your own game: <a href="https://github.com/davidnurdin/jumPhp/blob/main/docs/tutorial.md">tutorial</a> (<a href="https://github.com/davidnurdin/jumPhp/blob/main/docs/tutoriel.md">tutoriel en français</a>)</p>
+	<a class="card" href="breakout/"><span><strong>BREAKOUT</strong>
+		Break the wall of bricks with a bouncing ball: 3 lives, a new wall every level.<small>Left / Right (or A / D): move the paddle. Space: launch the ball. Escape / P: pause.</small></span></a>
+	<a class="card" href="hello-threads/"><span><strong>HELLO THREADS</strong>
+		A fractal computed by a pool of PHP threads (TrueAsync), while the main loop keeps drawing.<small>Space: next spot. M: threads / main thread. Escape: pause.</small></span></a>
+	<a class="card" href="hello-webgl/"><span><strong>HELLO WEBGL</strong>
+		3D cubes and post-processing shaders (CRT, wave, 4 colours) from PHP, with WebGL in the browser.<small>Arrows / pad sticks: turn, zoom (LT / RT). Space / A: next shader. Escape / Start: pause.</small></span></a>
+	<a class="card" href="jumpball/"><img src="jumpball/thumbnail.png" alt="" /><span><strong>JUMPBALL PHP</strong>
+		A 3D runner in PHP + WebGL: the ball rolls faster and faster, steer and jump over the holes.<small>Arrows / A D / stick: steer. Space / Up / A: jump (hold to jump again). Escape / Start: pause.</small></span></a>
+	<a class="card" href="pong/"><span><strong>PONG</strong>
+		The classic, in PHP: against the computer, two players on one keyboard, or online.<small>Player 1: W / S. Player 2: Up / Down. Escape: pause.</small></span></a>
+</main>
+</body>
+</html>

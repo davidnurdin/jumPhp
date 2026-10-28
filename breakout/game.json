@@ -1,0 +1,24 @@
+{
+    "id": "breakout",
+    "title": "BREAKOUT",
+    "version": "1.0.0",
+    "description": "Break the wall of bricks with a bouncing ball: 3 lives, a new wall every level.",
+    "width": 320,
+    "height": 240,
+    "online": false,
+    "lang": "en",
+    "net_url": "ws://localhost:8090/ws",
+    "touch": {
+        "a": "Space",
+        "b": "Escape",
+        "start": "Escape"
+    },
+    "thumbnail": null,
+    "controls": "Left / Right (or A / D): move the paddle. Space: launch the ball. Escape / P: pause.",
+    "engine": {
+        "name": "JumPHP",
+        "php": "8.3",
+        "network": "a898904e58d445501dc98e5d2cf029632c449618"
+    },
+    "built": "2026-10-28T18:10:38+00:00"
+}

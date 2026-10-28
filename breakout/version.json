@@ -1,0 +1,13 @@
+{
+  "build": "2026-10-28T18:10:39Z",
+  "php-web.mjs": "eaf0d0f329a4",
+  "php-web.wasm": "e70ca5549ad2",
+  "php-web.data": "ea6a38a302e9",
+  "jumphp-device.js": "20b1eeb543f9",
+  "jumphp-gamepad.js": "01564efc73e1",
+  "jumphp-http.js": "0305da854c37",
+  "jumphp-pwa.js": "cb869fbe74f9",
+  "jumphp-worker.js": "4def185d4711",
+  "touch.js": "2380d5167e45",
+  "php-wasm-network.js": "c0b61341e0cf"
+}
